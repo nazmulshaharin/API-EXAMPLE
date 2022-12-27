@@ -3,9 +3,10 @@ const searchFood = async () => {
   const searchText = searchField.value;
   //console.log(searchText);
   searchField.value = '';
- 
+  const error = document.getElementById('error-something');
   if(searchText == ''){
     // please write something display
+  error.style.display = 'block';
   }
 
   else {
@@ -35,8 +36,10 @@ const displaySearchResult = meals => {
   searchResult.textContent = ''  // এটা search result  কে ক্লীয়ার করার জন্য
   //or 
   //searchResult.innerHTML = ''
+  const resultError = document.getElementById('no-result');
 if(meals.length == 0){
   // show no result
+  resultError.style.display = 'block';
 }
   meals.forEach(meal => {
     //console.log(meal)
@@ -85,3 +88,13 @@ const displayMealDetail = meal => {
   `;
   mealDetails.appendChild(div);
 }
+
+document.getElementById('closeButton').addEventListener('click', function(){
+  const error = document.getElementById('error-something');
+  error.style.display = 'none'
+})
+
+document.getElementById('result').addEventListener('click', function(){
+  const anotherErrpr = document.getElementById('no-result');
+  anotherErrpr.style.display = 'none';
+})
