@@ -24,4 +24,8 @@
   border: 4px solid bisque;
   border-radius: 20px;
  }
+ #spinner{
+  text-align: center;
+  display: none;
+ }
  

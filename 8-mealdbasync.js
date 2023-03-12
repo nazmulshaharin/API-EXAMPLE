@@ -1,5 +1,15 @@
+const toggleSpinner = displayStyle => {
+  document.getElementById('spinner').style.display = displayStyle;
+}
+/* const toggleSearchResult = displayStyle => {
+  document.getElementById('search-result').style.display = displayStyle;
+} */
 const searchFood = async () => {
   const searchField = document.getElementById('search-field');
+  //show spinner
+  toggleSpinner('block');
+  //toggleSearchResult('none');
+  //end spinner
   const searchText = searchField.value;
   //console.log(searchText);
   searchField.value = '';
@@ -65,7 +75,9 @@ div.innerHTML = `
       </div>
 `
 searchResult.appendChild(div)
-  })
+  });
+  toggleSpinner('none');
+  //toggleSearchResult('block');
 }
 
 const loadMealDetail = async mealId => {
